@@ -1,4 +1,4 @@
-const botMethods = require("../plugins/botMethods");
+const botMethods = require("../../plugins/botMethods");
 
 exports.startMessage = (msg) => {
   return {
