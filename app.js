@@ -7,6 +7,7 @@ const bot = require("./plugins/bot");
 const callBackHandler = require("./handlers/callback");
 const messageHandler = require("./handlers/message");
 const app = express();
+const { topics } = require("./templates/topics");
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.get(/(.+)/, function(req, res){
   res.send("This is a Telegram Bot. Communicate through Telegram");
 });
+topics("summa").markup();
 
 bot.on('callbackQuery', (msg) => callBackHandler(msg));
 
