@@ -1,8 +1,4 @@
 {
-"builds": [{
-    "src": "app.js",
-    "use": "@now/node-server"
-}],
 "routes": [{
     "headers": {
         "Access-Control-Allow-Origin": "*",
@@ -10,6 +6,11 @@
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
     },
     "src": "/.*",
-    "dest": "/app.js"
-}]
+    "dest": "api/app.js"
+}],
+"functions":{
+  "api/app.js": {
+    "includeFiles": "plugins/**"
+  }
+}
 }

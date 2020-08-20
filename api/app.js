@@ -1,7 +1,10 @@
 require('dotenv').config();
 const TeleBot = require('telebot');
 const axios = require('axios');
-const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN);
+const bot = new TeleBot({
+  token: process.env.TELEGRAM_BOT_TOKEN,
+  pluginFolder: "plugins/"
+});
 
 bot.on(/\/start/, (msg) => {
   const message = `
