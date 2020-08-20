@@ -3,7 +3,7 @@ const TeleBot = require('telebot');
 const axios = require('axios');
 const bot = new TeleBot({
   token: process.env.TELEGRAM_BOT_TOKEN,
-  pluginFolder: "plugins/"
+  pluginFolder: __dirname+"/plugins/"
 });
 
 bot.on(/\/start/, (msg) => {
