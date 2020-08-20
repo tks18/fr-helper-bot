@@ -1,7 +1,17 @@
 require('dotenv').config();
 const TeleBot = require('telebot');
 const axios = require('axios');
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
 const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN);
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.get(/(.+)/, function(req, res){
+  res.send("This is a Bot Communicate through Telegram");
+});
 
 bot.on(/\/start/, (msg) => {
   const message = `
@@ -17,3 +27,7 @@ bot.on(/\/start/, (msg) => {
 });
 
 bot.start();
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, console.log('Server Started on ' + PORT ));
