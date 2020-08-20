@@ -1,0 +1,33 @@
+{
+  "name": "fr-helper-bot",
+  "version": "1.0.0",
+  "description": "A Telegram Bot for Helping CA Students in Financial Reporting",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tks18/fr-helper-bot.git"
+  },
+  "keywords": [
+    "Telegram",
+    "Bot",
+    "Financial",
+    "Reporting",
+    "Chartered",
+    "Accountancy"
+  ],
+  "author": "Sudharshan TK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tks18/fr-helper-bot/issues"
+  },
+  "homepage": "https://github.com/tks18/fr-helper-bot#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "telebot": "^1.4.1"
+  }
+}
