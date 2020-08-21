@@ -1,6 +1,7 @@
 const {
   startMessage,
-  topics
+  topics,
+  intro
 } = require("../../templates");
 const backHandlers = require("./backButtonHandlers");
 
@@ -14,6 +15,11 @@ function handler(msg){
     {
       handler: function() {
         return topics(msg).callbackids().includes(msg.data) && topics(msg).callback(msg.data);
+      }
+    },
+    {
+      handler: function() {
+        return intro(msg).callbackids().includes(msg.data) && intro(msg).callback(msg.data);
       }
     },
     ...backHandlers(msg)
