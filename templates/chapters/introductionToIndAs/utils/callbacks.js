@@ -108,8 +108,34 @@ module.exports = [
     },
     callback: function(msg) {
       botMethods.deleteMessage(msg);
-      let message = "*Mandatory Implementation Phase IV of IND AS*\n\nIf IND AS become applicable to any company, then IND AS shall automatically be made applicable to all the subsidiaries, holding companies, associated companies, and joint ventures of that company, irrespective of individual qualification of such companies.\n\nIn case of foreign operations of an Indian Company, the preparation of stand-alone financial statements may continue with its jurisdictional requirements and need not be prepared as per the IND AS.\n\nHowever, these entities will still have to report their IND AS adjusted numbers for their Indian parent company to prepare consolidated IND AS accounts.";
+      let message = "*Mandatory Implementation Phase IV of IND AS*\n\nAll NBFCs whose Net worth is more than or equal to INR 250 crore but less than INR 500 crore shall have IND AS mandatorily applicable to them  with effect from 1st April 2019.";
       return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
     },
   },
+  {
+    callbackid: "intro-2-subcall-4",
+    markup: function(msg){
+      var allButtons = [];
+      allButtons.push(backButton("intro-2-subcall-3", "Previous Phase"),homeButton("intro-2", "Back to Main Topic"));
+      return botMethods.inlineKey(allButtons)
+    },
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      let message = "*Mandatory Implementation Phase IV of IND AS*\n\nAll NBFCs whose Net worth is more than or equal to INR 250 crore but less than INR 500 crore shall have IND AS mandatorily applicable to them  with effect from 1st April 2019.";
+      return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
+    },
+  },
+  {
+    callbackid: "intro-3",
+    markup: function(msg){
+      var allButtons = [];
+      allButtons.push(backButton("intro-2"),homeButton(this.callbackid+"-back"));
+      return botMethods.inlineKey(allButtons)
+    },
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      let message = "*Some Miscellaneous Notes Regarding Implementation*\n\n>  If IND AS become applicable to any company, then IND AS shall  automatically be made applicable to all the subsidiaries, holding companies, associated companies, and joint ventures of that company, irrespective of individual qualification of such companies.\n\n>  In case of foreign operations of an Indian Company, the preparation of stand-alone financial statements may continue with its jurisdictional requirements and need not be prepared as per the IND AS.However, these entities will still have to report their IND AS adjusted numbers for their Indian parent company to prepare consolidated IND AS accounts.\n\n*Regarding Networth Calculation:*\n\nNet worth will be determined based on the stand-alone accounts of the company as on 31st March 2014, or the first audited period ending after that date. Net Worth is the total of Paid-up share Capital and all reserves out of profit & securities premium account, after deducting accumulated losses, deferred expenditure, and miscellaneous expenditure not written off. Only capital Reserve arising out of Promoters Contribution and Government Grants received can be included. Reserves created out of revaluation of assets and written back depreciation cannot be included.";
+      return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
+    },
+  }
 ]
