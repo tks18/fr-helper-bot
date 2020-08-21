@@ -2,6 +2,7 @@ const botMethods = require("../../../plugins/botMethods");
 const paperWorks = require("./paperWorks");
 const lodash = require("lodash");
 const callbacks = require("./utils/callbacks");
+const { backButton } = require("../../../common/commonMarkup");
 
 exports.introductionToIndAs = (msg) => {
   return {
@@ -10,6 +11,7 @@ exports.introductionToIndAs = (msg) => {
       const paperWorkButtons = lodash.chunk(paperWorks.map((item, i) => {
         return botMethods.inlineButtonCallback(item.callbackDisplay,`${item.callbackid}`);
       }), 1)
+      paperWorkButtons.push(backButton("topics-0-back", "Go Back to All Topics"));
       return botMethods.inlineKey(paperWorkButtons);
     },
     callbackids: function(){

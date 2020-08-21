@@ -2,6 +2,7 @@ const topics = require("../paperWorks");
 const botMethods = require("../../../plugins/botMethods");
 const { backButton } = require("../../../common/commonMarkup");
 const { introductionToIndAs } = require("../../../templates/chapters/introductionToIndAs");
+const { indAs1 } = require("../../../templates/chapters/indAs1");
 
 module.exports = [
   {
@@ -21,5 +22,12 @@ module.exports = [
       });
       return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: botMethods.inlineKey([backButton(this.callbackid+"-back")]) });
     },
-  }
+  },
+  {
+    callbackid: "topics-2",
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      return indAs1(msg).sendMessage();
+    },
+  },
 ]
