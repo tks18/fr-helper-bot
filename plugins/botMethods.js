@@ -15,5 +15,8 @@ module.exports = {
   },
   editMessage: function(msg, data){
     return bot.editMessageText({chatId: msg.message.chat.id, messageId: msg.message.message_id}, data);
+  },
+  deleteMessage: function(msg){
+    return bot.deleteMessage(msg.from.id, msg.message.message_id)
   }
 }

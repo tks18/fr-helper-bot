@@ -1,4 +1,5 @@
 const botMethods = require("../../plugins/botMethods");
+const { topics } = require("../topics");
 
 exports.startMessage = (msg) => {
   return {
@@ -11,15 +12,20 @@ exports.startMessage = (msg) => {
           ],
           [
             botMethods.inlineButtonCallback('Topics Available','start_topics'),
-            botMethods.inlineButtonCallback('Topics Available', 'start_super')
-          ]
+          ],
       ])
     },
     sendMessage: function() {
       return botMethods.sendMessage(msg, this.message, {parseMode: "Markdown", replyMarkup: this.markup()});
     },
+    callbackids: function(){
+      return [
+        'start_topics'
+      ]
+    },
     callback: function() {
-      return botMethods.editMessage(msg, `You Have Pressed Start CallBack`);
+      botMethods.deleteMessage(msg);
+      return topics(msg).sendMessage();
     }
   }
 }

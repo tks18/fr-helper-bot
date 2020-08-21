@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.get(/(.+)/, function(req, res){
   res.send("This is a Telegram Bot. Communicate through Telegram");
 });
-topics("summa").markup();
 
 bot.on('callbackQuery', (msg) => callBackHandler(msg));
 
