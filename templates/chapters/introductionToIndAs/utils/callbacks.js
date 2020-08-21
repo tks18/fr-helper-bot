@@ -69,7 +69,46 @@ module.exports = [
     },
     callback: function(msg) {
       botMethods.deleteMessage(msg);
-      let message = "*Mandatory Implementation Phase of IND AS*\n\nMandatory applicability of IND AS to all companies from 1st April 2016, provided:\n\n>  It is a listed or unlisted company\n>  Its Net worth is greater than or equal to Rs. 500 crore\n\n\nNet worth shall be checked for the previous three Financial Years (2013-14, 2014-15, and 2015-16).\n\nNetworth Calculation and Date of Computation can be Found in Miscellaneous Topics in IND AS 1. Be Sure to Check That";
+      let message = "*Mandatory Implementation Phase I of IND AS*\n\nMandatory applicability of IND AS to all companies from 1st April 2016, provided:\n\n>  It is a listed or unlisted company\n>  Its Net worth is greater than or equal to Rs. 500 crore\n\n\nNet worth shall be checked for the previous three Financial Years (2013-14, 2014-15, and 2015-16).\n\nNetworth Calculation and Date of Computation can be Found in Miscellaneous Topics in IND AS 1. Be Sure to Check That";
+      return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
+    },
+  },
+  {
+    callbackid: "intro-2-subcall-2",
+    markup: function(msg){
+      var allButtons = [];
+      allButtons.push(nextButton("intro-2-subcall-3", "Next Phase"),backButton("intro-2-subcall-1", "Previous Phase"),homeButton("intro-2", "Back to Main Topic"));
+      return botMethods.inlineKey(allButtons)
+    },
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      let message = "*Mandatory Implementation Phase II of IND AS*\n\nMandatory applicability of IND AS to all companies from 1st April 2017, provided:\n\n>  It is a listed company or is in the process of being listed (as on 31.03.2016).\n>  Its Net worth is greater than or equal to Rs. 250 crore but less than Rs. 500 crore (for any of the below mentioned periods).\n\n\nNet worth shall be checked for the previous four Financial Years (2014-14, 2014-15, 2015-16, and 2016-17)";
+      return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
+    },
+  },
+  {
+    callbackid: "intro-2-subcall-3",
+    markup: function(msg){
+      var allButtons = [];
+      allButtons.push(nextButton("intro-2-subcall-4", "Next Phase"),backButton("intro-2-subcall-2", "Previous Phase"),homeButton("intro-2", "Back to Main Topic"));
+      return botMethods.inlineKey(allButtons)
+    },
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      let message = "*Mandatory Implementation Phase III of IND AS*\n\nMandatory applicability of IND AS to all Banks, NBFCs, and Insurance companies from 1st April 2018, whose:\n\n>  Net worth is more than or equal to INR 500 crore with effect from 1st April 2018.\n\n\n*Note:* IRDA (Insurance Regulatory and Development Authority) of India shall notify the separate set of IND AS for Banks & Insurance Companies with effect from 1st April 2018. NBFCs include core investment companies, stock brokers, venture capitalists, etc. Net Worth shall be checked for the past 3 financial years  (2015-16, 2016-17, and 2017-18)";
+      return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
+    },
+  },
+  {
+    callbackid: "intro-2-subcall-4",
+    markup: function(msg){
+      var allButtons = [];
+      allButtons.push(backButton("intro-2-subcall-3", "Previous Phase"),homeButton("intro-2", "Back to Main Topic"));
+      return botMethods.inlineKey(allButtons)
+    },
+    callback: function(msg) {
+      botMethods.deleteMessage(msg);
+      let message = "*Mandatory Implementation Phase IV of IND AS*\n\nIf IND AS become applicable to any company, then IND AS shall automatically be made applicable to all the subsidiaries, holding companies, associated companies, and joint ventures of that company, irrespective of individual qualification of such companies.\n\nIn case of foreign operations of an Indian Company, the preparation of stand-alone financial statements may continue with its jurisdictional requirements and need not be prepared as per the IND AS.\n\nHowever, these entities will still have to report their IND AS adjusted numbers for their Indian parent company to prepare consolidated IND AS accounts.";
       return botMethods.sendMessage(msg, message, { parseMode: "Markdown", replyMarkup: this.markup(msg)});
     },
   },
