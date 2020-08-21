@@ -8,7 +8,7 @@ function keepalive() {
       setInterval(async () => {
         const data = await axios.get(site);
         console.log(data.config.url, "status:"+''+ data.status , "Text:"+' '+data.statusText);
-      }, 1560000);
+      }, 270000);
     } catch(e) {
       console.log(e);
     }
