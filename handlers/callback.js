@@ -1,4 +1,4 @@
-const handleCallback = require("./callBackHandlers");
+const handleCallback = require("./callbackHandlers");
 
 function handler(msg){
   handleCallback(msg).forEach((callback) => {
